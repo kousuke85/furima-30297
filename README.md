@@ -16,7 +16,6 @@
 ### Association
 
 - has_many :items
-- has_many :shipping_addresss
 - has_many :purchase_records
 
 ## item テーブル
@@ -32,13 +31,13 @@
 | delivery_days             | integer   | null: false                    |
 | price                     | integer   | null: false                    |
 | user                      | references| null: false, foreign_key: true |
-| shipping_address          | references| null: false, foreign_key: true |
+| purchase_record           | references| null: false, foreign_key: true |
 
 
 ### Association
 
 - belongs_to :user
-- has_one :shipping_address
+- has_one :purchase_record
 
 
 ## shipping_address テーブル
