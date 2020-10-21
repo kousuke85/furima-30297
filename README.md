@@ -25,14 +25,14 @@
 | ------------------------- | --------- | ------------------------------ |
 | name                      | string    | null: false                    |
 | text                      | text      | null: false                    |
-| category                  | string    | null: false                    |
-| condition                 | string    | null: false                    |
-| delivery_charge           | string    | null: false                    |
-| delivery_area             | string    | null: false                    |
-| delivery_days             | string    | null: false                    |
+| category                  | integer   | null: false                    |
+| condition                 | integer   | null: false                    |
+| delivery_charge           | integer   | null: false                    |
+| delivery_area             | integer   | null: false                    |
+| delivery_days             | integer   | null: false                    |
 | price                     | integer   | null: false                    |
-| Seller_id                 | references| null: false, foreign_key: true |
-| shipping_address_id       | references| null: false, foreign_key: true |
+| user                      | references| null: false, foreign_key: true |
+| shipping_address          | references| null: false, foreign_key: true |
 
 
 ### Association
@@ -45,14 +45,13 @@
 
 | Column                    | Type      | Options                        |
 | ------------------------- | --------- | ------------------------------ |
-| customer_id               | string    | null: false                    |
-| card_id                   | string    | null: false                    |
 | postal_code               | string    | null: false                    |
-| prefectures               | string    | null: false                    |
+| prefectures-id            | integer   | null: false                    |
 | municipality              | string    | null: false                    |
 | address                   | string    | null: false                    |
 | building_name             | string    |                                |
-| phone_number              | integer   | null: false                    |
+| phone_number              | string    | null: false                    |
+| purchase_record           | references| null: false, foreign_key: true |
 
 
 ### Association
@@ -67,9 +66,8 @@
 
 | Column                    | Type      | Options                        |
 | ------------------------- | --------- | ------------------------------ |
-| buyer_id                  | references| null: false, foreign_key: true |
-| Seller_id                 | references| null: false, foreign_key: true |
-| item_id                   | references| null: false, foreign_key: true |
+| user                      | references| null: false, foreign_key: true |
+| item                      | references| null: false, foreign_key: true |
 
 
 ### Association
