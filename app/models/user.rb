@@ -7,6 +7,27 @@ class User < ApplicationRecord
   has_many :items
   has_many :purchase_records
 
-  validates :encrypted_password, presence: true, length: { minimum: 6 }
+  with_options presence: true do
+  validates :nickname
+  validates :first_name
+  validates :last_name
+  validates :first_name_kana
+  validates :last_name_kana
+  validates :birthday
+  end
+  validates :email, uniqueness: true
+
+  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
+  validates_format_of :password, with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください' 
+
+  with_options format: {with: /\A[ぁ-んァ-ン一-龥]/}do
+    validates :first_name
+    validates :last_name
+  end
+
+  with_options format: {with: /\A[ァ-ヶー－]+\z/} do
+    validates :first_name_kana
+    validates :last_name_kana
+  end
 
 end
