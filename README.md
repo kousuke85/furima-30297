@@ -18,7 +18,7 @@
 - has_many :items
 - has_many :purchase_records
 
-## item テーブル
+## items テーブル
 
 | Column                    | Type      | Options                        |
 | ------------------------- | --------- | ------------------------------ |
