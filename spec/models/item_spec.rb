@@ -33,25 +33,50 @@ describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include("Category is not a number")
       end
+      it "category_idの値が0だと登録できない" do
+        @item.category_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category must be other than 0")
+      end
       it "condition_idが空だと登録できない" do
         @item.condition_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition is not a number")
+      end
+      it "condition_idの値が0だと登録できない" do
+        @item.condition_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Condition must be other than 0")
       end
       it "delivery_charge_idが空だと登録できない" do
         @item.delivery_charge_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery charge is not a number")
       end
+      it "delivery_charge_idの値が0だと登録できない" do
+        @item.delivery_charge_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery charge must be other than 0")
+      end
       it "delivery_area_idが空だと登録できない" do
         @item.delivery_area_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery area is not a number")
       end
+      it "delivery_area_idの値が0だと登録できない" do
+        @item.delivery_area_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery area must be other than 0")
+      end
       it "delivery_days_idが空だと登録できない" do
         @item.delivery_days_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery days is not a number")
+      end
+      it "delivery_days_idの値が0だと登録できない" do
+        @item.delivery_days_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery days must be other than 0")
       end
       it "priceが空だと登録できない" do
         @item.price = ''
