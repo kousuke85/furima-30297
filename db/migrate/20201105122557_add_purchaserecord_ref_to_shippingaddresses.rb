@@ -1,0 +1,5 @@
+class AddPurchaserecordRefToShippingaddresses < ActiveRecord::Migration[6.0]
+  def change
+    add_reference :shippingaddresses, :purchaserecord, null: false, foreign_key: true
+  end
+end

@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :items
-- has_many :purchase_records
+- has_many :purchaserecords
 
 ## items テーブル
 
@@ -24,11 +24,11 @@
 | ------------------------- | --------- | ------------------------------ |
 | name                      | string    | null: false                    |
 | text                      | text      | null: false                    |
-| category_id               | integer   | null: false                    |
-| condition_id              | integer   | null: false                    |
-| delivery_charge_id        | integer   | null: false                    |
-| delivery_area_id          | integer   | null: false                    |
-| delivery_days_id          | integer   | null: false                    |
+| categoryid                | integer   | null: false                    |
+| conditionid               | integer   | null: false                    |
+| deliverycharge_id         | integer   | null: false                    |
+| deliveryarea_id           | integer   | null: false                    |
+| deliverydays_id           | integer   | null: false                    |
 | price                     | integer   | null: false                    |
 | user                      | references| null: false, foreign_key: true |
 
@@ -36,10 +36,10 @@
 ### Association
 
 - belongs_to :user
-- has_one :purchase_record
+- has_one :purchaserecord
 
 
-## shipping_address テーブル
+## shippingaddress テーブル
 
 | Column                    | Type      | Options                        |
 | ------------------------- | --------- | ------------------------------ |
@@ -49,16 +49,16 @@
 | address                   | string    | null: false                    |
 | building_name             | string    |                                |
 | phone_number              | string    | null: false                    |
-| purchase_record           | references| null: false, foreign_key: true |
+| purchaserecord            | references| null: false, foreign_key: true |
 
 
 ### Association
 
-- belongs_to :purchase_record
+- belongs_to :purchaserecord
 
 
 
-## purchase_record テーブル
+## purchaserecord テーブル
 
 | Column                    | Type      | Options                        |
 | ------------------------- | --------- | ------------------------------ |
@@ -70,4 +70,4 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :shipping_address
+- has_one :shippingaddress

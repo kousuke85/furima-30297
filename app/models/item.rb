@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :deliveryarea
   belongs_to_active_hash :deliverydays
   belongs_to :user
-  has_one :purchase_record
+  has_one :purchaserecord
   has_one_attached :image
 
   with_options presence: true do
