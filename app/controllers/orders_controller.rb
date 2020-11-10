@@ -1,18 +1,14 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:show]
-  before_action :set_item, only: [:show,:create]
+  before_action :set_item, only: [:show,:create,:move_to_index]
   before_action :move_to_index, only: [:show]
 
   def show
-    @item = Item.find(params[:item_id])
     @user_order = UserOrder.new
   end
 
-  def new
-  end
 
   def create
-    @item = Item.find(params[:item_id])
     @user_order = UserOrder.new(order_params)
      if @user_order.valid?
         pay_item
@@ -42,7 +38,6 @@ class OrdersController < ApplicationController
   end
 
   def move_to_index
-    @item = Item.find(params[:id])
     if  current_user.id == @item.user.id
 
       redirect_to controller: :items, action: :index
