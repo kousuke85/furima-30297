@@ -7,7 +7,6 @@ class OrdersController < ApplicationController
     @user_order = UserOrder.new
   end
 
-
   def create
     @user_order = UserOrder.new(order_params)
      if @user_order.valid?
